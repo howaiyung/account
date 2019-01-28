@@ -40,3 +40,12 @@
     
 
 </html>
+
+<!-- Doing a bit of trial and error has given me a bit more insight into how the .Net Core 2.2 and Entity Framework execute their code.
+    The way the framework works is that you require a HomeController.cs and a Home folder in Views that contains a file called Index.cshtml. 
+    The problem with doing with something like this is that the head needs to loaded multiple times if you are handling multiple pages. 
+    Creating a _ViewStart.cshtml and _Layout.cshtml will allow a to create a default screen be created, which will simply execute the code 
+    such that it'll auto fire the _ViewStart.cshtml -> _Layout.cshtml first before executing the HomeController.cs. It'll then execute the
+    autorouting of the HomeController to the Index.cshtml file located in the Views -> Home folder, executing any addtional code. Any code
+    that is in HomeController is to control the actions in the Index.cshtml file.
+    -->
